@@ -1,0 +1,17 @@
+# Credenciales y variables privadas
+.env
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+
+# Pruebas y caché
+.pytest_cache/
+
+# Configuración local de editores
+.vscode/

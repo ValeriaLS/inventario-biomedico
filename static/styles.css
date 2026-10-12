@@ -1,0 +1,499 @@
+/* =========================================
+   INVENTARIO BIOMÉDICO
+   Estilos generales de la aplicación
+   ========================================= */
+
+/* Colores principales */
+:root {
+    --azul-oscuro: #173b57;
+    --azul-principal: #246b91;
+    --azul-claro: #eaf4fa;
+    --turquesa: #45b8ad;
+    --fondo: #f4f7fa;
+    --blanco: #ffffff;
+    --texto: #293b4a;
+    --texto-secundario: #728292;
+    --borde: #dce5ec;
+    --verde: #21865b;
+    --rojo: #c74747;
+    --sombra: 0 5px 20px rgba(27, 57, 79, 0.07);
+}
+
+/* Reinicio básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* =========================================
+   ENCABEZADO
+   ========================================= */
+
+.encabezado {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        120deg,
+        var(--azul-oscuro),
+        var(--azul-principal)
+    );
+    color: var(--blanco);
+    padding: 35px 7%;
+    border-bottom: 5px solid var(--turquesa);
+}
+
+/* Círculos decorativos */
+.encabezado::after {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    right: 8%;
+    top: -115px;
+    border: 25px solid rgba(255, 255, 255, 0.07);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.encabezado::before {
+    content: "+";
+    position: absolute;
+    right: 18%;
+    bottom: 0;
+    color: rgba(255, 255, 255, 0.12);
+    font-size: 125px;
+    font-weight: 300;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.encabezado h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+}
+
+.encabezado p {
+    position: relative;
+    z-index: 1;
+    margin-top: 5px;
+    color: #d6e8f4;
+    font-size: 1rem;
+}
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+   ========================================= */
+
+.contenedor {
+    width: 90%;
+    max-width: 1250px;
+    margin: 35px auto;
+}
+
+/* Tarjetas */
+.tarjeta {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 13px;
+    padding: 28px;
+    margin-bottom: 25px;
+    box-shadow: var(--sombra);
+    transition: box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+    box-shadow: 0 8px 26px rgba(27, 57, 79, 0.10);
+}
+
+.tarjeta h2 {
+    color: var(--azul-oscuro);
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.tarjeta > p {
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* Pequeño detalle bajo los títulos */
+.tarjeta h2::after {
+    content: "";
+    display: block;
+    width: 43px;
+    height: 3px;
+    margin-top: 8px;
+    background-color: var(--turquesa);
+    border-radius: 5px;
+}
+
+/* =========================================
+   FORMULARIO
+   ========================================= */
+
+#formulario-equipo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 22px;
+    margin-top: 22px;
+}
+
+#formulario-equipo label {
+    align-self: end;
+    color: var(--texto);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#formulario-equipo input,
+#formulario-equipo select {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    margin-bottom: 7px;
+    background-color: #fbfdff;
+    border: 1px solid var(--borde);
+    border-radius: 7px;
+    outline: none;
+    color: var(--texto);
+    font: inherit;
+    font-size: 0.94rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#formulario-equipo input:focus,
+#formulario-equipo select:focus {
+    border-color: var(--azul-principal);
+    box-shadow: 0 0 0 3px rgba(36, 107, 145, 0.12);
+    background-color: var(--blanco);
+}
+
+#formulario-equipo input::placeholder {
+    color: #a2afba;
+}
+
+/* Botones */
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 17px;
+    background-color: var(--azul-principal);
+    color: var(--blanco);
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--azul-oscuro);
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--turquesa);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#formulario-equipo button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 8px;
+    padding: 12px 23px;
+    background-color: var(--turquesa);
+    color: #123e43;
+}
+
+#formulario-equipo button:hover {
+    background-color: #32a59a;
+}
+
+/* Mensajes de respuesta del formulario */
+#mensaje {
+    margin-top: 15px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   ENCABEZADO DEL INVENTARIO
+   ========================================= */
+
+.titulo-listado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.titulo-listado p {
+    margin-top: 8px;
+    color: var(--texto-secundario);
+    font-size: 0.94rem;
+}
+
+#btn-actualizar {
+    flex-shrink: 0;
+}
+
+/* =========================================
+   TABLA DE EQUIPOS
+   ========================================= */
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+}
+
+table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    background-color: var(--blanco);
+    font-size: 0.9rem;
+}
+
+thead {
+    background-color: var(--azul-claro);
+}
+
+th {
+    padding: 15px 13px;
+    text-align: left;
+    color: var(--azul-oscuro);
+    font-weight: 700;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--borde);
+}
+
+td {
+    padding: 14px 13px;
+    border-bottom: 1px solid #edf1f5;
+    vertical-align: middle;
+}
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f6fafc;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Mensajes cuando no hay equipos o se están cargando */
+#lista-equipos td[colspan] {
+    padding: 30px;
+    text-align: center;
+    color: var(--texto-secundario);
+}
+
+/* =========================================
+   ESTADOS DE LOS EQUIPOS
+   ========================================= */
+
+.estado {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.79rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.estado-disponible {
+    background-color: #e0f5e9;
+    color: #20734b;
+}
+
+.estado-mantenimiento {
+    background-color: #fff0d4;
+    color: #956315;
+}
+
+.estado-fuera {
+    background-color: #fde5e5;
+    color: #a62f38;
+}
+
+/* =========================================
+   BOTONES DE ACCIÓN EN LA TABLA
+   ========================================= */
+
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.btn-editar {
+    background-color: #e3f0fa;
+    color: #225b82;
+    padding: 7px 10px;
+    font-size: 0.82rem;
+}
+
+.btn-editar:hover {
+    background-color: #cce4f5;
+    color: #173b57;
+}
+
+.btn-eliminar {
+    background-color: #fde9e9;
+    color: #ad3535;
+    padding: 7px 10px;
+    font-size: 0.82rem;
+}
+
+.btn-eliminar:hover {
+    background-color: #f8d4d4;
+    color: #852424;
+}
+
+/* =========================================
+   REPORTE
+   ========================================= */
+
+#btn-reporte {
+    margin-top: 5px;
+}
+
+#resultado-reporte {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #d6e9f2;
+    border-left: 4px solid var(--turquesa);
+    border-radius: 8px;
+    background-color: #f4fafc;
+    color: var(--texto);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+#resultado-reporte:not(:empty) {
+    display: block;
+}
+
+/* =========================================
+   PIE DE PÁGINA
+   ========================================= */
+
+footer {
+    padding: 23px 15px;
+    margin-top: 40px;
+    text-align: center;
+    background-color: #eaf0f5;
+    border-top: 1px solid var(--borde);
+}
+
+footer p {
+    color: var(--texto-secundario);
+    font-size: 0.86rem;
+}
+
+/* =========================================
+   ADAPTACIÓN A TABLET Y CELULAR
+   ========================================= */
+
+@media (max-width: 768px) {
+    .encabezado {
+        padding: 28px 6%;
+    }
+
+    .encabezado h1 {
+        font-size: 1.7rem;
+    }
+
+    .encabezado::after {
+        right: -90px;
+    }
+
+    .contenedor {
+        width: 94%;
+        margin: 22px auto;
+    }
+
+    .tarjeta {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #formulario-equipo {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    #formulario-equipo button {
+        width: 100%;
+    }
+
+    .titulo-listado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #btn-actualizar {
+        width: 100%;
+    }
+
+    table {
+        min-width: 800px;
+    }
+}
+
+@media (max-width: 420px) {
+    .encabezado h1 {
+        font-size: 1.45rem;
+    }
+
+    .encabezado p {
+        font-size: 0.9rem;
+    }
+
+    .tarjeta {
+        padding: 16px;
+    }
+
+    .tarjeta h2 {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 0.88rem;
+    }
+}

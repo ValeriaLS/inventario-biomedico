@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario Biomédico</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <div>
+            <h1>Inventario Biomédico</h1>
+            <p>Gestión y control de equipos médicos</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+
+        <section class="tarjeta">
+            <h2>Registrar equipo</h2>
+
+            <form id="formulario-equipo">
+
+                <label for="nombre">Nombre del equipo</label>
+                <input id="nombre" name="nombre" type="text"
+                       maxlength="100" required>
+
+                <label for="marca">Marca</label>
+                <input id="marca" name="marca" type="text"
+                       maxlength="100" required>
+
+                <label for="modelo">Modelo</label>
+                <input id="modelo" name="modelo" type="text"
+                       maxlength="100" required>
+
+                <label for="numero_serie">Número de serie</label>
+                <input id="numero_serie" name="numero_serie" type="text"
+                       maxlength="100" required>
+
+                <label for="ubicacion">Ubicación</label>
+                <input id="ubicacion" name="ubicacion" type="text"
+                       maxlength="150" required>
+
+                <label for="estado">Estado</label>
+                <select id="estado" name="estado">
+                    <option value="Disponible">Disponible</option>
+                    <option value="En mantenimiento">En mantenimiento</option>
+                    <option value="Fuera de servicio">Fuera de servicio</option>
+                </select>
+
+                <button type="submit">Registrar equipo</button>
+
+            </form>
+
+            <p id="mensaje" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="tarjeta">
+            <div class="titulo-listado">
+                <div>
+                    <h2>Equipos registrados</h2>
+                    <p>Consulta los equipos almacenados en la base de datos.</p>
+                </div>
+
+                <button id="btn-actualizar" type="button">
+                    Actualizar lista
+                </button>
+            </div>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Equipo</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Número de serie</th>
+                            <th>Ubicación</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-equipos">
+                        <tr>
+                            <td colspan="7">Cargando equipos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Reporte del inventario</h2>
+
+            <p>
+                Consulta un resumen de los equipos registrados
+                y su estado actual.
+            </p>
+
+            <button id="btn-reporte" type="button">
+                Generar reporte
+            </button>
+
+            <pre id="resultado-reporte"></pre>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Proyecto académico de gestión de equipos biomédicos</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+
+</body>
+</html>
